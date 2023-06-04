@@ -1,0 +1,58 @@
+GET http://localhost:3000/clients
+
+###
+
+GET http://localhost:3000/clients/6470d006b9ab005bb6782c34
+
+###
+
+POST http://localhost:3000/clients
+Content-Type: application/json
+
+{
+    "first_name": "Karel",
+    "last_name": "Novak",
+    "age": 38,
+    "phone_number": 111222333
+
+}
+
+###
+DELETE http://localhost:3000/clients/646e1fd01c94cb9b4a0ee19b
+
+###
+PATCH http://localhost:3000/clients/646e1875a10f562c4dae1f90
+Content-Type: application/json
+
+{
+    "firstname": "Jan"
+}
+
+###
+GET http://localhost:3000/insurance
+
+###
+
+GET http://localhost:3000/insurance/
+
+###
+
+POST http://localhost:3000/insurance
+Content-Type: application/json
+
+{
+    "name": "zivotni",
+    "amount": 1000000
+}
+
+###
+DELETE http://localhost:3000/insurance/6470d69b89fc29d101b2834b
+
+###
+
+PATCH http://localhost:3000/insurance/6470d7c0c17be2a28333d97c
+Content-Type: application/json
+
+{
+    "name": "životní"
+}
