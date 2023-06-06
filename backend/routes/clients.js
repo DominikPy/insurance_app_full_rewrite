@@ -16,14 +16,20 @@ res.status(500).json({message: err.message})
 } );
 
 //Getting one
-router.get("/:id", getClient, (req, res) => {
-  try{
-    res.send(res.client)
-  } catch(err){
-      res.status(500).json({message: err.message})
-  }
+router.get("/:id", getClient, async (req, res) => {
+  try {
+    const clientId = req.params.id;
 
-  });
+    // Retrieve client data from MongoDB
+    const client = await Client.findById(clientId);
+
+    // Render the HTML template and pass the client data
+    res.render('../views/clientDetail.ejs', { client });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 
 //Creating one
@@ -33,6 +39,8 @@ router.post("/", async (req, res) => {
     last_name: req.body.last_name,
     age: req.body.age,
     phone_number: req.body.phone_number,
+    street: req.body.street,
+    city: req.body.city,
     insurance: req.body.insurance
   })
 
@@ -58,6 +66,12 @@ if (req.body.age != null){
 }
 if (req.body.phone_number != null){
   res.client.phone_number = req.body.phone_number
+}
+if (req.body.street != null){
+  res.client.street = req.body.street
+}
+if (req.body.city != null){
+  res.client.city = req.body.city
 }
 if (req.body.insurance != null){
   res.client.insurance = req.body.insurance
