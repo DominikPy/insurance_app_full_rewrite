@@ -33,6 +33,8 @@ router.post("/", async (req, res) => {
     last_name: req.body.last_name,
     age: req.body.age,
     phone_number: req.body.phone_number,
+    street: req.body.street,
+    city: req.body.city,
     insurance: req.body.insurance
   })
 
@@ -58,6 +60,12 @@ if (req.body.age != null){
 }
 if (req.body.phone_number != null){
   res.client.phone_number = req.body.phone_number
+}
+if (req.body.street != null){
+  res.client.street = req.body.street
+}
+if (req.body.city != null){
+  res.client.city= req.body.city
 }
 if (req.body.insurance != null){
   res.client.insurance = req.body.insurance

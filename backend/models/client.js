@@ -20,6 +20,16 @@ const clientSchema = new mongoose.Schema({
         require: true
     },
 
+    street:{
+        type: String,
+        require: true
+    },
+
+    city:{
+        type: String,
+        require: true
+    },
+
     insurance:{
         type: Array,
         require: false
