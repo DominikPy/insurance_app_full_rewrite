@@ -23,6 +23,7 @@ clientTable()
       const row = tbody.insertRow();
       //Create a link using first and last name
       const nameCell = row.insertCell();
+      nameCell.classList.add("align-middle")
       const name = document.createElement("a");
       name.textContent = arr[client].first_name + " " + arr[client].last_name;
       name.classList.add("link-primary");
@@ -30,6 +31,7 @@ clientTable()
       nameCell.appendChild(name);
       //Create address from "street" and "city"
       const addressCell = row.insertCell();
+      addressCell.classList.add("align-middle");
       addressCell.textContent = arr[client].street + " " + arr[client].city;
 
       // Create a container for the buttons
@@ -66,3 +68,4 @@ clientTable()
 function test(){
   console.log('nice')
 }
+
