@@ -27,3 +27,5 @@ function click() {
   //reset form
   document.getElementById("form").reset()
 }
+
+//TODO add input validation
