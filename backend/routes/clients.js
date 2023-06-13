@@ -18,7 +18,8 @@ res.status(500).json({message: err.message})
 //Getting one
 router.get("/:id", getClient, (req, res) => {
   try{
-    res.send(res.client)
+    res.render('../views/client_detail')
+
   } catch(err){
       res.status(500).json({message: err.message})
   }

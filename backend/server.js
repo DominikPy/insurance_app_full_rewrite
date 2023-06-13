@@ -13,6 +13,7 @@ db.once("open", () => console.log("connected to db"));
 
 app.use(express.json());
 app.use(cors());
+app.set('view engine', 'ejs')
 
 const clientRouter = require("./routes/clients");
 app.use("/clients", clientRouter);
