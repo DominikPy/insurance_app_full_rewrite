@@ -16,15 +16,18 @@ res.status(500).json({message: err.message})
 } );
 
 //Getting one
-router.get("/:id", getClient, (req, res) => {
-  try{
-    res.render('../views/client_detail')
+router.get("/:id", getClient, async (req, res) => {
+  try {
+    const clientId = req.params.id;
 
-  } catch(err){
-      res.status(500).json({message: err.message})
-  }
-
-  });
+    // Retrieve client data from MongoDB
+    const client = await Client.findById(clientId);
+    // Render the HTML template and pass the client data
+    res.render('../views/client_detail.ejs', { client });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error')};
+  })
 
 
 //Creating one

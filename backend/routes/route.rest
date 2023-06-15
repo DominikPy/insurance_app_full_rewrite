@@ -6,7 +6,7 @@ GET http://localhost:3000/clients/647f0d8e7f458c267e0d92a0
 
 ###
 
-POST http://localhost:3000/clients
+POST http://localhost:8081/clients
 Content-Type: application/json
 
 {
