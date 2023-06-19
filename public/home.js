@@ -65,7 +65,3 @@ clientTable()
     delClient(this.id)
   });
 
-function test(){
-  console.log('nice')
-}
-

@@ -16,7 +16,9 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a href="http://127.0.0.1:5502/frontend/index.html" class="navbar-brand">Insurance app</a>
+        <a href="http://localhost:3000" class="navbar-brand"
+          >Insurance app</a
+        >
         <button
           class="navbar-toggler"
           data-bs-toggle="collapse"
@@ -32,25 +34,46 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="index.html" class="nav-link" aria-current="page">Home</a>
+              <a href="http://localhost:3000" class="nav-link" aria-current="page">Home</a>
             </li>
             <li class="nav-item">
               <a
-                href="create_insurance.html"
+                href="http://localhost:3000/create_insurance.html"
                 class="nav-link"
                 aria-current="page"
                 >Create Insurance</a
               >
             </li>
             <li class="nav-item">
-              <a href="about.html" class="nav-link" aria-current="page">About</a>
+              <a href="http://localhost:3000/about.html" class="nav-link" aria-current="page"
+                >About</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <p>Name: <%= client.first_name %></p>
-    <p>Address: <%= client.address %></p>
+    <div class="container my-3">
+      <div class="client">
+        <h2><%= client.first_name + " " + client.last_name %></h2>
+        <p><%= client.street %></p>
+        <p><%= client.city %></p>
+      </div>
+      <div class="table">
+        <h2>Insurance</h2>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary" id="addInsuranceBtn">
+          Add insurance
+        </button>
+        <button type="button" class="btn btn-warning" id="editClientBnt">
+          Edit client
+        </button>
+        <button type="button" class="btn btn-danger" id="deleteClientBtn">
+          Delete client
+        </button>
+      </div>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
