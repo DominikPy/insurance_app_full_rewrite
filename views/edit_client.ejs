@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <a href="http://localhost:3000" class="navbar-brand"
+          >Insurance app</a
+        >
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="nav"
+          aria-controls="nav"
+          aria-label="Expand Navigation"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="http://localhost:3000" class="nav-link" aria-current="page">Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="http://localhost:3000/create_insurance.html"
+                class="nav-link"
+                aria-current="page"
+                >Create Insurance</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="http://localhost:3000/about.html" class="nav-link" aria-current="page"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <form id="form">
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              id="first_name"
+              value="<%= client.first_name %>"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              value="<%= client.last_name %>"
+              id="last_name"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Age"
+              value="<%= client.age %>"
+              id="age"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phonenumber"
+              value="<%= client.phone_number %>"
+              id="phonenumber"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Street 123"
+              value="<%= client.street %>"
+              id="street"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="City"
+              value="<%= client.city %>"
+              id="city"
+            />
+          </div>
+        </div>
+              <button class="btn btn-primary" id="update" type="button" data-clientid="<%= client._id %>">
+          Update
+        </button>
+        <a href="<%='http://localhost:3000/clients/' + client._id %>" class="btn btn-danger">Back</a>
+      </form>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="http://localhost:3000/edit_client.js"></script>
+</html>

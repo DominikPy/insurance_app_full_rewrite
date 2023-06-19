@@ -22,6 +22,21 @@ export class Client {
       console.log(err);
     }
   }
+
+  async postToDB(id){
+    try {
+      await axios.patch("http://localhost:3000/clients/" + id, {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        age: this.age,
+        phone_number: this.phone_number,
+        street: this.street,
+        city: this.city,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 
 export async function showAll() {

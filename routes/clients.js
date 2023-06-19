@@ -30,6 +30,19 @@ router.get("/:id", getClient, async (req, res) => {
   })
 
 
+router.get("/edit/:id", getClient, async (req, res) => {
+  try {
+    const clientId = req.params.id;
+
+    // Retrieve client data from MongoDB
+    const client = await Client.findById(clientId);
+    // Render the HTML template and pass the client data
+    res.render('../views/edit_client.ejs', { client });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error')};
+  })
+
 //Creating one
 router.post("/", async (req, res) => {
   const client = new Client({
