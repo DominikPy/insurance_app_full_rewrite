@@ -6,7 +6,7 @@ createBtn.addEventListener("click", () => {
 });
 
 function click() {
-    const clientID = createBtn.getAttribute("data-clientid");
+  const clientID = createBtn.getAttribute("data-clientid");
   //load form data
   const first_name = document.getElementById("first_name").value;
   const last_name = document.getElementById("last_name").value;
@@ -23,8 +23,7 @@ function click() {
     street,
     city
   );
-  console.log(clientID)
+  console.log(clientID);
   console.log(newClient);
   newClient.postToDB(clientID);
-  //reset form
 }
