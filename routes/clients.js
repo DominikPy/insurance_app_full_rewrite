@@ -29,7 +29,7 @@ router.get("/:id", getClient, async (req, res) => {
     res.status(500).send('Internal Server Error')};
   })
 
-
+//render client details view
 router.get("/edit/:id", getClient, async (req, res) => {
   try {
     const clientId = req.params.id;
@@ -42,6 +42,41 @@ router.get("/edit/:id", getClient, async (req, res) => {
     console.error(error);
     res.status(500).send('Internal Server Error')};
   })
+//render add insurace view
+  router.get("/add_insurance/:id", getClient, async (req, res) => {
+    try {
+      const clientId = req.params.id
+      // Retrieve client data from MongoDB
+    const client = await Client.findById(clientId);
+    res.render('../views/add_client_insurance.ejs', { client })
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
+  router.patch('/add_insurance/add/:id', getClient, async (req, res) => {
+    try {
+      const clientId = req.params.id;
+      const { insuranceEntry } = req.body;
+  
+      // Retrieve client data from MongoDB
+      const client = await Client.findById(clientId);
+      if (!client) {
+        return res.status(404).json({ error: 'Client not found' });
+      }
+  
+      // Add the insurance entry to the client's insurance array
+      client.insurance.push(insuranceEntry);
+  
+      // Save the updated client data to the database
+      await client.save();
+  
+      res.json(client);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
 
 //Creating one
 router.post("/", async (req, res) => {

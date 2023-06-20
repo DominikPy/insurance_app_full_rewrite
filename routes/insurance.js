@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Insurance = require("../models/insurance");
-
+//TODO remove, most likely don't need insurance routing since I'm just gonna add them to the client array
 //Getting all
 router.get("/", async (req, res) => {
   try {

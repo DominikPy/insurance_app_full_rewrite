@@ -1,11 +1,20 @@
 export class Client {
-  constructor(first_name, last_name, age, phone_number, street, city) {
+  constructor(
+    first_name,
+    last_name,
+    age,
+    phone_number,
+    street,
+    city,
+    insurance
+  ) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.age = age;
     this.phone_number = phone_number;
     this.street = street;
     this.city = city;
+    insurance = [];
   }
 
   async saveToDB() {
@@ -23,7 +32,7 @@ export class Client {
     }
   }
 
-  async postToDB(id){
+  async postToDB(id) {
     try {
       await axios.patch("http://localhost:3000/clients/" + id, {
         first_name: this.first_name,

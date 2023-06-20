@@ -58,3 +58,17 @@ Content-Type: application/json
 {
     "name": "životní"
 }
+
+###
+
+PATCH http://localhost:3000/clients/add_insurance/add/64899e88999f57c1af4a557f
+Content-Type: application/json
+
+{
+    "insuranceEntry": {
+    "type": "car",
+    "amount": "10",
+    "start_date": "1",
+    "end_date": "2"
+    }
+}
