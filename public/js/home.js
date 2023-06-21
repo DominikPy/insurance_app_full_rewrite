@@ -17,6 +17,8 @@ async function clientTable() {
   const tbody = document.createElement("tbody");
   const table = document.querySelector(".table");
   table.appendChild(tbody);
+  //Why did I use for...in? 
+  //Probably should rewrite this later 
   for (let client in arr) {
     // TODO remove log
     console.log(arr[client]);

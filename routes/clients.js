@@ -29,6 +29,19 @@ router.get("/:id", getClient, async (req, res) => {
     res.status(500).send('Internal Server Error')};
   })
 
+  //Get client insurance
+  router.get("/insurance/:id", getClient, async (req, res) =>{
+try {
+  const clientId = req.params.id
+  // Retrieve client data from MongoDB
+  const client = await Client.findById(clientId);
+  const insuranceArray = client.insurance
+  res.send(insuranceArray)
+} catch (error) {
+  console.log(error)
+}
+  })
+
 //render client details view
 router.get("/edit/:id", getClient, async (req, res) => {
   try {

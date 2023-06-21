@@ -52,7 +52,7 @@
         <p><%= client.street %></p>
         <p><%= client.city %></p>
       </div>
-      <div class="table">
+      <div class="table" id="table_div" data-clientId="<%= client._id %>">
         <h2>Insurance</h2>
       </div>
       <div class="buttons">
@@ -69,4 +69,6 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"
   ></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="http://localhost:3000/js/insurance_table.js"></script>
 </html>

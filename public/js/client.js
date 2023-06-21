@@ -66,3 +66,13 @@ export async function delClient(id) {
     console.log(err);
   }
 }
+
+export async function getClientInsurance(id) {
+  try {
+    let res = await axios.get("http://localhost:3000/clients/insurance/" + id);
+    let data = await res.data
+    return data
+  } catch (error) {
+    console.log(error);
+  }
+}
