@@ -1,4 +1,4 @@
-import {Client, getClientInsurance } from "./client.js";
+import {Client, getClientInsurance, delClientInsurance } from "./client.js";
 
 const tableDiv = document.getElementById("table_div")
 const clientID = tableDiv.getAttribute("data-clientId")
@@ -76,9 +76,7 @@ endDateCell.appendChild(endDate);
     }
   }
 
-  $(document).on("click", ".delBtn", function () {
-    Client.delClientInsurance($(identifier).data('clientID'), $(identifier).data('insuranceId'))
-  });
+  
 
 //TODO remove log
 console.log(insuranceArray)

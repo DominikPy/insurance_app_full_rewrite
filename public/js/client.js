@@ -1,5 +1,3 @@
-import client from "../../models/client";
-
 export class Client {
   constructor(
     first_name,
@@ -48,14 +46,6 @@ export class Client {
       console.log(err);
     }
   }
-  static async delClientInsurance(clientId, insuranceId){
-    try {
-      await axios.delete("http://localhost:3000/clients/" + clientId +"/insurance/" + insuranceId)
-      window.location.reload();
-    } catch (error) {
-      console.log(error)
-    }
-  }
 }
 
 
@@ -90,4 +80,11 @@ export async function getClientInsurance(id) {
   }
 }
 
-
+export async function delClientInsurance(clientId, insuranceId){
+  try {
+    await axios.delete("http://localhost:3000/clients/" + clientId +"/insurance/" + insuranceId)
+    window.location.reload();
+  } catch (error) {
+    console.log(error)
+  }
+}
