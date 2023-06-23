@@ -1,3 +1,5 @@
+import client from "../../models/client";
+
 export class Client {
   constructor(
     first_name,
@@ -46,8 +48,19 @@ export class Client {
       console.log(err);
     }
   }
+  static async delClientInsurance(clientId, insuranceId){
+    try {
+      await axios.delete("http://localhost:3000/clients/" + clientId +"/insurance/" + insuranceId)
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 
+
+//Rewrite as static methods
+//In general I should change most of this code, welp thats what happens when you code first and ask questions later. Technical debt adds up fast.
 export async function showAll() {
   try {
     let res = await axios.get("http://localhost:3000/clients");
@@ -76,3 +89,5 @@ export async function getClientInsurance(id) {
     console.log(error);
   }
 }
+
+

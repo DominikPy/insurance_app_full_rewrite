@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Client = require('../models/client');
+const axios = require('axios');
 
 //TODO: test removal not sure why its here 2 times
 const client = require("../models/client");
@@ -154,6 +155,30 @@ try {
 }
 });
 
+router.delete('/:clientId/insurance/del/:insuranceId', async (req, res) => {
+  const { clientId, insuranceId } = req.params;
+
+  try {
+    const client = await Client.findById(clientId);
+    if (!client) {
+      return res.status(404).json({ message: 'Client not found' });
+    }
+
+    const insuranceIndex = client.insurance.findIndex(ins => ins.id === insuranceId);
+    if (insuranceIndex === -1) {
+      return res.status(404).json({ message: 'Insurance not found' });
+    }
+
+    client.insurance.splice(insuranceIndex, 1);
+    await client.save();
+
+    res.json({ message: 'Insurance item deleted successfully' });
+  } catch (error) {
+    console.error(error); // Log the error to the console for debugging
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
+
 async function getClient(req, res, next) {
   let client
 try {
@@ -167,5 +192,7 @@ try {
 res.client = client
 next()
 }
+
+
 
 module.exports = router;

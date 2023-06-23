@@ -1,4 +1,4 @@
-import { getClientInsurance } from "./client.js";
+import {Client, getClientInsurance } from "./client.js";
 
 const tableDiv = document.getElementById("table_div")
 const clientID = tableDiv.getAttribute("data-clientId")
@@ -69,9 +69,16 @@ endDateCell.appendChild(endDate);
     del.id = insurance._id;
     del.classList.add("btn", "btn-danger", "delBtn");
     del.onclick = buttonContainer.appendChild(del);
+    del.setAttribute('data-clientId', clientID)
+    del.setAttribute('data-insuranceId', insurance._id)
+    //TODO add data attribuce for client and insurance id, and create a onClick event listener
+
     }
   }
 
+  $(document).on("click", ".delBtn", function () {
+    Client.delClientInsurance($(identifier).data('clientID'), $(identifier).data('insuranceId'))
+  });
 
 //TODO remove log
 console.log(insuranceArray)

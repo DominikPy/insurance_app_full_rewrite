@@ -72,3 +72,6 @@ Content-Type: application/json
     "end_date": "2"
     }
 }
+
+###
+DELETE http://localhost:3000/clients/64899e88999f57c1af4a557f/insurance/del/6491cd1aa7b8bcea99a3753c
