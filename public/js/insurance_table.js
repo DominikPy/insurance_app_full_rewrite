@@ -71,13 +71,30 @@ endDateCell.appendChild(endDate);
     del.onclick = buttonContainer.appendChild(del);
     del.setAttribute('data-clientId', clientID)
     del.setAttribute('data-insuranceId', insurance._id)
-    //TODO add data attribuce for client and insurance id, and create a onClick event listener
+    //TODO add data attribuce for client and insurance id, and create a Click event listener
 
     }
   }
+// Get all delete buttons with the 'delBtn' class
+const deleteButtons = document.querySelectorAll('.delBtn');
 
-  
+// Attach a click event listener to each delete button
+deleteButtons.forEach(function(deleteButton) {
+  deleteButton.addEventListener('click', function(event) {
+    event.preventDefault();
 
+    // Get the data attributes from the clicked delete button
+    const clientId = this.getAttribute('data-clientId');
+    const insuranceId = this.getAttribute('data-insuranceId');
+
+    //TODO remove log
+    console.log('Client ID:', clientId);
+    console.log('Insurance ID:', insuranceId);
+    delClientInsurance(clientId, insuranceId)
+ //TODO add delete comfirmation and popup of succesful deletion 
+ //ideally reload just part of the page and not the whole page
+  });
+});
 //TODO remove log
 console.log(insuranceArray)
 

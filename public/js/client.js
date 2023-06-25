@@ -82,7 +82,7 @@ export async function getClientInsurance(id) {
 
 export async function delClientInsurance(clientId, insuranceId){
   try {
-    await axios.delete("http://localhost:3000/clients/" + clientId +"/insurance/" + insuranceId)
+    await axios.delete("http://localhost:3000/clients/" + clientId +"/insurance/del/" + insuranceId)
     window.location.reload();
   } catch (error) {
     console.log(error)

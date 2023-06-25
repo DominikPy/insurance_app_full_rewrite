@@ -28,3 +28,5 @@ function click() {
   console.log(newClient);
   newClient.postToDB(clientID);
 }
+
+//TODO add success msg after saving

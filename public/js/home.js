@@ -59,6 +59,6 @@ async function clientTable() {
 }
 
 //Del button click
-$(document).on("click", ".delBtn", function () {
+$(document).on("click", ".delBtn", () => {
   delClient(this.id);
 });

@@ -74,4 +74,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/clients/64899e88999f57c1af4a557f/insurance/del/6491cd1aa7b8bcea99a3753c
+DELETE http://localhost:3000/clients/649582d0dbd597adc8a0a7a1/insurance/del/64982076c2399c07508fb5e4
