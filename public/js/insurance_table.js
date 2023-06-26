@@ -56,10 +56,12 @@ endDateCell.appendChild(endDate);
     buttonContainer.classList.add("btn-group");
     emptyCell.appendChild(buttonContainer);
 
-
+    //"<%='http://localhost:3000/clients/edit/' + client._id %>"
+//:clientid/insurance/edit/:id
     //TODO make those buttons work
     // Edit button
-    const edit = document.createElement("button");
+    const edit = document.createElement("a");
+    edit.href = "http://localhost:3000/clients/"+ clientID + "/insurance/edit/" + insurance._id
     edit.textContent = "Edit";
     edit.classList.add("btn", "btn-primary");
     buttonContainer.appendChild(edit);

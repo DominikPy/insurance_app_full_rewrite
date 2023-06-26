@@ -2,7 +2,7 @@ GET http://localhost:3000/clients
 
 ###
 
-GET http://localhost:3000/clients/647f0d8e7f458c267e0d92a0
+GET http://localhost:3000/clients/649582d0dbd597adc8a0a7a1
 
 ###
 
@@ -29,6 +29,16 @@ Content-Type: application/json
 {
     "firstname": "Jan"
 }
+
+###
+PATCH http://localhost:3000/clients/649582d0dbd597adc8a0a7a1/insurance/patch/649836717b4d13e1c3f05419
+Content-Type: application/json
+
+{
+    "type": "Life"
+}
+
+//"http://localhost:3000/clients/" + clientId + "insurance/patch/" + insuraceId
 
 ###
 GET http://localhost:3000/insurance
@@ -75,3 +85,6 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/clients/649582d0dbd597adc8a0a7a1/insurance/del/64982076c2399c07508fb5e4
+
+###
+GET http://localhost:3000/clients/649582d0dbd597adc8a0a7a1/insurance/edit/649836717b4d13e1c3f05419

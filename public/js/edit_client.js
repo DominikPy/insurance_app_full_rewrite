@@ -4,8 +4,10 @@ const createBtn = document.getElementById("update");
 createBtn.addEventListener("click", () => {
   click();
 });
-//TODO change to proper patch, why did I use post method?
+//change to proper patch, why did I use post method?
+//Wrong name but correct method, postToDB doesn't "post" but patches
 //also why the hell did I make a sep. fucntion for the click?
+
 function click() {
   const clientID = createBtn.getAttribute("data-clientid");
   //load form data

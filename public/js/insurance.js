@@ -21,4 +21,17 @@ export class Insurance{
           console.error('Error adding insurance entry to the client:', err.response ? err.response.data : err.message);
         }
       }
+
+      async patchInsurance(clientId, insuraceId){
+      try {
+        await axios.patch("http://localhost:3000/clients/" + clientId + "/insurance/patch/" + insuraceId, {
+          type: this.type,
+          amount: this.amount,
+          start_date: this.start_date,
+          end_date:  this.end_date,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
     }      
