@@ -2,7 +2,7 @@
 - This is a simple CRUD working with mongodb, node js and a browser
 - Its far from useful but the main aim was to learn using this tech stack
 
-## Shortcommings
+## Shortcomings
 - There is no user verification or security 
 - No input validation 
 - It doesns't use HTML partials for nav etc.
